@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  box-sizing: border-box;
+  /* font-family: 'Poppins', sans-serif; */
+}
+p , li {
+  font-family: 'Poppins', sans-serif;
+}
+.comfortaa {
+  font-family: 'Comfortaa', sans-serif;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}

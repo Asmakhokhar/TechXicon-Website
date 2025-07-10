@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",  // This ensures that paths are resolved relative to the project root
+    "paths": {
+      "@/*": ["src/*"]  // This will allow you to use '@' to refer to the 'src' folder
+    }
+  }
+}

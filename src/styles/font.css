@@ -1,0 +1,24 @@
+/* font.css */
+@import url('https://fonts.googleapis.com/css2?family=Destine&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Destine&display=swap');
+
+.font-destine {
+  font-family: 'Destine', sans-serif;
+}
+h1 ,h2,h3 {
+  font-family: 'Destine', sans-serif !important;
+}
+@font-face {
+  font-family: 'Destine';
+  src: url('assets/fonts/Destine.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Destine';
+  src: url('/fonts/destine.woff2') format('woff2'),
+       url('/fonts/destine.woff') format('woff'),
+       url('/fonts/destine.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  unicode-range: U+0020-007E; /* Ensures basic Latin characters, including numbers */
+}
