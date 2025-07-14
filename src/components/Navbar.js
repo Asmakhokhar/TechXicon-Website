@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useContext } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -57,6 +58,29 @@ const Navbar = () => {
   const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
   const { theme, toggleTheme } = useContext(ThemeContext);
 
+  const router = useRouter();
+  const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
+
+  // Helper to handle anchor navigation from any page
+  const handleNavClick = (e, href) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      if (pathname === '/' || pathname === '/home') {
+        // Already on landing page, just scroll
+        const id = href.replace('#', '');
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.location.hash = href;
+        }
+      } else {
+        // Not on landing page, go to landing page with hash
+        router.push('/' + href);
+      }
+    }
+  };
+
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
@@ -86,7 +110,7 @@ const Navbar = () => {
                   onMouseLeave={() => setServiceOpen(false)}
                 >
                   <div className="flex items-center gap-1 cursor-pointer hover:scale-105 transition ">
-                    <Link href={link.href}>{link.name}</Link>
+                    <Link href={link.href} onClick={e => handleNavClick(e, link.href)}>{link.name}</Link>
                     <FiChevronDown className="text-sm mt-1" />
                   </div>
                   <AnimatePresence>
@@ -124,7 +148,7 @@ const Navbar = () => {
                   onMouseLeave={() => setIndustriesOpen(false)}
                 >
                   <div className="flex items-center gap-1 cursor-pointer hover:scale-105 transition hover:text-[#9854FF]">
-                    <Link href={link.href}>{link.name}</Link>
+                    <Link href={link.href} onClick={e => handleNavClick(e, link.href)}>{link.name}</Link>
                     <FiChevronDown className="text-sm mt-1" />
                   </div>
                   <AnimatePresence>
@@ -155,7 +179,12 @@ const Navbar = () => {
 
             return (
               <motion.li key={i} whileHover={{ scale: 1.1 }}>
-                <Link className='text-[#000000] dark:text-white dark:hover:text-[#9854FF] hover:text-[#9854FF]' href={link.href}>{link.name}</Link>
+                <Link className='text-[#000000] dark:text-white dark:hover:text-[#9854FF] hover:text-[#9854FF]'
+                  href={link.href}
+                  onClick={e => handleNavClick(e, link.href)}
+                >
+                  {link.name}
+                </Link>
               </motion.li>
             );
           })}
@@ -289,7 +318,7 @@ const Navbar = () => {
                   key={i}
                   className="h-16 flex items-center px-6 border-b border-white/10 hover:bg-[#003347]/80"
                 >
-                  <Link href={link.href}>{link.name}</Link>
+                  <Link href={link.href} onClick={e => handleNavClick(e, link.href)}>{link.name}</Link>
                 </motion.li>
               );
             })}
