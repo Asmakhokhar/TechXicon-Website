@@ -45,9 +45,6 @@ const socialLinks = [
   { name: 'Instagram', href: 'https://www.instagram.com/techxicon.official/' },
   { name: 'LinkedIn', href: 'https://linkedin.com' },
 ];
-const contact = () => {
-  window.location.href = '#contact';
-}
 
 
 const Navbar = () => {
@@ -61,12 +58,12 @@ const Navbar = () => {
   const router = useRouter();
   const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
 
-  // Helper to handle anchor navigation from any page
+  // Navigation handler for links
   const handleNavClick = (e, href) => {
     if (href.startsWith('#')) {
       e.preventDefault();
       if (pathname === '/' || pathname === '/home') {
-        // Already on landing page, just scroll
+      
         const id = href.replace('#', '');
         const el = document.getElementById(id);
         if (el) {
@@ -75,7 +72,7 @@ const Navbar = () => {
           window.location.hash = href;
         }
       } else {
-        // Not on landing page, go to landing page with hash
+        
         router.push('/' + href);
       }
     }
