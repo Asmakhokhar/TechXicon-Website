@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 
-// Disable SSR for GridLoader to fix hydration mismatch
 const GridLoader = dynamic(() => import('react-spinners/GridLoader'), { ssr: false });
 
 import About from "@/components/About";
@@ -14,7 +13,7 @@ import Footer from "@/components/Footer";
 import CustomServices from "@/components/Services";
 import Main from "@/components/Main";
 import Navbar from "@/components/Navbar";
-import Team from "@/components/Team";
+// import Team from "@/components/Team";
 import Testimonial from "@/components/Testimonial";
 
 export default function Home() {
@@ -41,7 +40,7 @@ export default function Home() {
       <CustomServices />
       <Client />
       <Testimonial />
-      <Team />
+      {/* <Team /> */}
       <Faq />
       <Contact />
       <Footer />

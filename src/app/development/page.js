@@ -146,16 +146,16 @@ export default function Page() {
       </section>
 
       {/* Working Process Section */}
-      <section className="space-y-8 mt-10 px-6 md:px-10">
+      <section className="space-y-8 mt-10 px-6 md:px-10 border">
         <h2 className="poppins-400 text-3xl ml-10 font-medium text-[#2B2933] font-poppins relative inline-block after:block after:h-[2px] after:bg-gradient-to-r after:from-[#9854FF] after:to-[#442AC6] after:w-[86%] after:mt-2">
           Our Working Process
         </h2>
 
-        <div className="flex flex-col justify-center items-center gap-5">
+        <div className="flex flex-col justify-center items-center gap-5 border">
           {/* First Row */}
           <div className="w-full flex justify-center">
             <div className="w-full max-w-[1305px] px-4 flex items-center justify-center">
-              <div className="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center">
+              <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center w-full">
                 {processSteps.map((step, i) => (
                   <div key={i} className="border border-gray-400 rounded-xl shadow-md hover:shadow-lg transition xl:w-[281px]">
                     <div className="bg-[#F8F1FF] flex items-center justify-center px-6 py-4 rounded-xl h-1/3">
@@ -171,9 +171,9 @@ export default function Page() {
           </div>
 
           {/* Second Row */}
-          <div className="w-full flex justify-center mb-6">
-            <div className="w-full max-w-[1305px] px-4 flex items-center justify-center">
-              <div className="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center">
+          <div className="w-full flex justify-center mb-6 border">
+            <div className="w-full px-4 flex items-center justify-center border">
+              <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center w-full">
                 {processSteps2.map((step, i) => (
                   <div key={i} className="border border-gray-400 rounded-xl shadow-md hover:shadow-lg transition xl:w-[281px]">
                     <div className="bg-[#F8F1FF] flex items-center justify-center px-6 py-4 rounded-xl h-1/3">

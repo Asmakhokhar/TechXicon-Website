@@ -1,62 +1,76 @@
 "use client";
-
-import React, { useRef } from 'react';
-import emailjs from '@emailjs/browser';
+import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { FaLocationDot, FaPhone } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa";
 import { BiLogoGmail } from "react-icons/bi";
 import { MdEmail } from "react-icons/md";
 
+const textVariants = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: { duration: 0.5 }
+  }
+};
+
+
 const Contact = () => {
   const form = useRef();
   const contactRef = useRef(null);
   const isInView = useInView(contactRef, { once: true, margin: "-100px" });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setSuccess(false);
+    setError("");
 
-    emailjs
-      .sendForm(
-        'service_p4s7tsk',
-        'template_j3kjmcp',
-        form.current,
-        'ZrZexnTk7cz3lqDpR'
-      )
-      .then(
-        () => {
-          alert('Message sent successfully!');
-          form.current.reset();
-        },
-        (error) => {
-          console.error('Email send error:', error?.text || error);
-          alert('Failed to send message. Check console for details.');
-        }
-      );
-  };
+    const formData = {
+      name: form.current.name.value,
+      email: form.current.email.value,
+      phone: form.current.phone.value,
+      message: form.current.message.value,
+    };
 
-  // Animation variants for text
-  const textVariants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: { 
-      opacity: 1, 
-      x: 0,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
+    try {
+      const res = await fetch("http://localhost:8080/api/v1/contact/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setSuccess(true);
+        form.current.reset();
+      } else {
+        setError(data.message || "Submission failed.");
       }
+    } catch (err) {
+      console.error(err);
+      setError("Something went wrong!");
+    } finally {
+      setLoading(false);
     }
   };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: { 
-      opacity: 1, 
-      x: 0,
-      transition: { duration: 0.5 }
-    }
-  };
-
   return (
     <div 
       ref={contactRef}
@@ -151,10 +165,27 @@ const Contact = () => {
 
             <button
               type="submit"
-              className="bg-white text-[#000000] hover:bg-[#EDEDED] font-semibold px-6 py-2 rounded-md transition"
+              className="bg-white text-[#000000] hover:bg-[#EDEDED] font-semibold px-6 py-2 rounded-md transition flex items-center justify-center min-w-[100px]"
+              disabled={loading}
             >
-              Submit
+              {loading ? (
+                <span className="flex items-center gap-2">
+                  <svg className="animate-spin h-5 w-5 text-[#9854FF]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+                  </svg>
+                  Sending...
+                </span>
+              ) : (
+                "Submit"
+              )}
             </button>
+            {success && (
+              <div className="text-green-600 font-semibold mt-4 text-center">Form submitted successfully!</div>
+            )}
+            {error && (
+              <div className="text-red-600 font-semibold mt-4 text-center">{error}</div>
+            )}
           </form>
         </motion.div>
       </div>

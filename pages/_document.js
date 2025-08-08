@@ -6,7 +6,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en" className="scroll-smooth">
         <Head>
-          {/* ✅ Google Font */}
+          {/* Google Fonts */}
           <link
             href="https://fonts.googleapis.com/css2?family=Destine&display=swap"
             rel="stylesheet"
