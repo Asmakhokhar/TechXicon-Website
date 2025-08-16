@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 
 const GridLoader = dynamic(() => import('react-spinners/GridLoader'), { ssr: false });
 
-import About from "@/components/About";
+import About from "@/components/AboutSection";
 import Client from "@/components/Client";
 import Contact from "@/components/Contact";
 import Faq from "@/components/Faq";

@@ -92,7 +92,7 @@ export default function Page() {
 
           <div className="gap-2 relative md:max-w-[360px] md:max-h-[360px] w-full h-auto">
             <Image
-              src="/p.png"
+              src="/-_Digital Marketing.png"
               alt="Digital Marketing"
               layout="responsive"
               width={360}

@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Main from '../components/Main'
-import About from '../components/About'
+import About from '../components/AboutSection'
 import Services from '../components/Services'
 import AppDevelopment from '../components/AppDevelopment'
 import Ecommerce from '../components/Ecommerce'
@@ -13,7 +13,7 @@ import Footer from '../components/Footer'
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Navbar />
       <Main />
       <About />
@@ -25,6 +25,6 @@ export default function Home() {
       <Faq />
       <Contact />
       <Footer />
-    </div>
+    </>
   )
 }

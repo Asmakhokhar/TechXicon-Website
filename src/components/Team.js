@@ -4,36 +4,68 @@ import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
+import { FaInstagram, FaLinkedin, FaFacebook } from "react-icons/fa";
+
 
 const teamMembers = [
   {
     img: "/arham.jpg",
     name: "M. Arham Sohail",
     role: "CEO/Founder",
+    social: {
+      instagram: "#",
+      linkedin: "#",
+      facebook: "#"
+    }
   },
   {
     img: "/Hamda-20.jpg",
     name: "Hamda Sheikh",
     role: "COO",
+    social: {
+      instagram: "#",
+      linkedin: "#",
+      facebook: "#"
+    }
   },
   {
     img: "/Jannat.jpg",
     name: "Jannat Malik",
     role: "HR",
+    social: {
+      instagram: "#",
+      linkedin: "#",
+      facebook: "#"
+    }
   },
   {
-    img: "/",
+    img: "/DPP.jpg",
     name: "Zunaira Javed",
     role: "CMO",
+    social: {
+      instagram: "#",
+      linkedin: "#",
+      facebook: "#"
+    }
   },
   {
-    img: "/",
+    img: "/sana.jpg",
     name: "Sana Naveed",
     role: "Content Manager",
+    social: {
+      instagram: "#",
+      linkedin: "#",
+      facebook: "#"
+    }
   },{
     img: "/Asma.jpg",
     name: "Asma",
     role: "Dev Team Lead",
+    social: {
+      instagram: "#",
+      linkedin: "#",
+      facebook: "#"
+    }
   },
 ];
 
@@ -43,13 +75,13 @@ export default function Team() {
     <div className="relative w-full text-center">
       
 
-      <div className="relative z-10 py-12 px-4 flex flex-col items-center justify-center backdrop-blur-lg bg-white/60 mx-auto max-w-3xl">
+      <div className="relative z-10 py-12 px-4 flex flex-col items-center justify-center backdrop-blur-lg mx-auto max-w-3xl">
         <div className="relative flex flex-col items-center justify-center w-full">
           <div className="mb-4 flex items-center justify-center">
             <img src="/logoo.png" alt="Team Logo" className="w-full h-full" />
           </div>
           <h2 className="text-4xl font-extrabold text-[#7C5FF3] mb-2 drop-shadow-lg tracking-tight">
-            <span className="text-black">Our</span> Team
+            <span className="text-black dark:text-white">Our</span> Team
           </h2>
           <p className="text-base text-[#442AC6] font-medium mb-4 bg-white/70 px-4 py-2 rounded-xl shadow-sm backdrop-blur-sm inline-block">Meet the creative minds behind TechXicon</p>
         </div>
@@ -77,7 +109,7 @@ export default function Team() {
   );
 
 }
-const TeamCard = ({ img, name, role }) => (
+const TeamCard = ({ img, name, role, social }) => (
   <motion.div
     initial={{ opacity: 0, y: 40 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -97,5 +129,30 @@ const TeamCard = ({ img, name, role }) => (
       <p className="text-sm text-[#442AC6] font-medium mb-2">{role}</p>
       <div className="w-10 h-1 bg-gradient-to-r from-[#9854FF] to-[#442AC6] rounded-full mt-2" />
     </div>
+
+    <div className="flex justify-center space-x-3 mt-4">
+      <a 
+        href={social.instagram} 
+        className="text-[#7C5FF3] hover:text-[#442AC6] transition-colors"
+        aria-label={`${name}'s Instagram`}
+      >
+        <FaInstagram size={18} />
+      </a>
+      <a 
+        href={social.linkedin} 
+        className="text-[#7C5FF3] hover:text-[#442AC6] transition-colors"
+        aria-label={`${name}'s LinkedIn`}
+      >
+        <FaLinkedin size={18} />
+      </a>
+      <a 
+        href={social.facebook} 
+        className="text-[#7C5FF3] hover:text-[#442AC6] transition-colors"
+        aria-label={`${name}'s Facebook`}
+      >
+        <FaFacebook size={18} />
+      </a>
+    </div>
   </motion.div>
 );
+

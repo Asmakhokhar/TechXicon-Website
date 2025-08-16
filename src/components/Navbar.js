@@ -16,20 +16,28 @@ import { FaXTwitter } from "react-icons/fa6";
 
 import { ThemeContext } from '@/app/context/ThemeContext';
 
+const gotocontact = () => {
+  const el = document.getElementById('/contactpage');
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: 'About', href: '#about' },
+  { name: "Home", href: "/" },
+  { name: 'About Us', href: '/about' },
   { name: 'Services', href: '#services' },
   { name: 'Industries', href: '#' },
-  { name: 'Portfolio', href: '#' },
+  { name: 'Our Team', href: '/team' },
 
 ];
-const aboutDropdown = [
-  { name: 'About Us', href: '/about' },
-  { name: 'Our Team', href: '/team' },
-  { name: 'Our Story', href: '/about#story' },
-  { name: 'Careers', href: '/about#careers' },
-];
+// const aboutDropdown = [
+//   { name: 'About Us', href: '/about' },
+//   { name: 'Our Team', href: '/team' },
+//   { name: 'Our Story', href: '/about#story' },
+//   { name: 'Careers', href: '/about#careers' },
+// ];
+
 
 const serviceDropdown = [
   { name: 'Visual Designing', href: '/visual-designing' },
@@ -105,7 +113,7 @@ const Navbar = () => {
           />
         </Link>
 
-        <ul className="hidden lg:flex gap-12 text-[#000000]  dark:text-white font-light relative font-poppins">
+        <ul className="hidden lg:flex gap-9 text-[#000000]  dark:text-white font-light relative font-poppins">
           {navLinks.map((link, i) => {
             if (link.name === 'Services') {
               return (
@@ -294,12 +302,15 @@ const Navbar = () => {
           >
             {navLinks.map((link, i) => {
 
-              if (link.name === 'about') {
+              if (link.name === 'About Us') {
                 return (
                   <React.Fragment key={i}>
                     <motion.li
                       className="h-16 flex items-center justify-between px-6 border-b border-white/10 hover:bg-[#003347]/80"
-                      onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
+                      onClick={() => {
+                        setMobileAboutOpen(!mobileAboutOpen);
+                        window.location.href = '/about';
+                      }}
                     >
                       <span>{link.name}</span>
                       <FiChevronDown />
@@ -397,7 +408,7 @@ const Navbar = () => {
                         </motion.ul>
                       )}
                       <motion.li className="px-6 py-4">
-                        <button className="w-full poppins-400 bg-gradient-to-r from-[#9854FF] to-[#442AC6] text-white md:px-9 md:py-2 px-4 py-2 items-center rounded-[6px] text-sm outline-none md:text-lg hover:bg-[#ba8cff] transition duration-300">
+                        <button onClick={gotocontact} className="w-full poppins-400 bg-gradient-to-r from-[#9854FF] to-[#442AC6] text-white md:px-9 md:py-2 px-4 py-2 items-center rounded-[6px] text-sm outline-none md:text-lg hover:bg-[#ba8cff] transition duration-300">
                           Free Consultation
                         </button>
                       </motion.li>

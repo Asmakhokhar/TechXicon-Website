@@ -48,7 +48,7 @@ export default function Page() {
     },
     {
       title: "UI/UX Design & Prototyping",
-      desc: "Our design team crafts intuitive, visually appealing, and user-friendly interfaces. We develop wireframes and interactive prototypes to refine the app’s flow.",
+      desc: "Our design team crafts intuitive, visually appealing, and user-friendly interfaces. We develop wireframes and interactive prototypes to refine the app's flow.",
     },
     {
       title: "App Development",
@@ -72,11 +72,11 @@ export default function Page() {
   ];
 
   return (
-    <div id="app" className="relative">
+    <div id="app" className="relative overflow-x-hidden">
       <Navbar />
       
       {/* Hero Section */}
-      <section className="flex items-center p-6 md:p-9 flex-col md:flex-row gap-5 md:gap-12 bg-white min-h-screen">
+      <section className="flex items-center p-6 md:p-9 flex-col md:flex-row gap-5 md:gap-12 bg-white min-h-screen w-full">
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
@@ -98,13 +98,13 @@ export default function Page() {
             solutions that align with your business goals.
           </p>
           <button className="bg-gradient-to-r from-[#9854FF] to-[#442AC6] text-white px-6 py-2 rounded-lg text-sm md:text-base">
-            Let’s Connect
+            Let's Connect
           </button>
         </motion.div>
 
         <div className="flex justify-center w-full md:w-1/2">
           <img
-            src="/app.png"
+            src="/-_App Development.png"
             alt="Illustration of mobile app development"
             className="w-full max-w-[500px] h-auto object-cover rounded-xl"
           />
@@ -112,9 +112,9 @@ export default function Page() {
       </section>
 
       {/* Services Details Section */}
-      <section className="bg-[#FCFAFF] rounded-3xl px-6 md:px-25 py-22 lg:max-w-screen mx-auto mt-12">
-        <div className="flex flex-col gap-9 md:flex-row md:gap-20">
-          <div className="flex-1 space-y-6">
+      <section className="bg-[#FCFAFF] rounded-3xl px-6 md:px-16 lg:px-25 py-12 lg:py-22 w-full max-w-screen-2xl mx-auto mt-12">
+        <div className="flex flex-col gap-9 md:flex-row md:gap-20 w-full">
+          <div className="flex-1 space-y-6 w-full">
             {/* Native App Deployment */}
             <div className="space-y-3">
               <h2 className="heading font-Comfortaa font-bold text-[#442AC6] text-[19px]">
@@ -146,22 +146,22 @@ export default function Page() {
       </section>
 
       {/* Working Process Section */}
-      <section className="space-y-8 mt-10 px-6 md:px-10 border">
-        <h2 className="poppins-400 text-3xl ml-10 font-medium text-[#2B2933] font-poppins relative inline-block after:block after:h-[2px] after:bg-gradient-to-r after:from-[#9854FF] after:to-[#442AC6] after:w-[86%] after:mt-2">
+      <section className="space-y-8 mt-10 px-6 md:px-10 w-full max-w-screen-2xl mx-auto">
+        <h2 className="poppins-400 text-3xl ml-5 md:ml-10 font-medium text-[#2B2933] font-poppins relative inline-block after:block after:h-[2px] after:bg-gradient-to-r after:from-[#9854FF] after:to-[#442AC6] after:w-[86%] after:mt-2">
           Our Working Process
         </h2>
 
-        <div className="flex flex-col justify-center items-center gap-5 border">
+        <div className="flex flex-col justify-center items-center gap-5 w-full">
           {/* First Row */}
           <div className="w-full flex justify-center">
-            <div className="w-full max-w-[1305px] px-4 flex items-center justify-center">
-              <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center w-full">
+            <div className="w-full px-4 flex items-center justify-center">
+              <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center w-full">
                 {processSteps.map((step, i) => (
-                  <div key={i} className="border border-gray-400 rounded-xl shadow-md hover:shadow-lg transition xl:w-[281px]">
-                    <div className="bg-[#F8F1FF] flex items-center justify-center px-6 py-4 rounded-xl h-1/3">
+                  <div key={i} className="border border-gray-400 rounded-xl shadow-md hover:shadow-lg transition w-full max-w-[400px] mx-auto">
+                    <div className="bg-[#F8F1FF] flex items-center justify-center px-6 py-4 rounded-xl h-1/3 min-h-[80px]">
                       <h3 className="poppins-500 text-lg font-semibold text-[#464646] text-center">{step.title}</h3>
                     </div>
-                    <div className="flex text-center items-center justify-center">
+                    <div className="flex text-center items-center justify-center min-h-[120px]">
                       <p className="poppins-400 text-[#000000] text-[12px] font-semibold p-5 font-poppins">{step.desc}</p>
                     </div>
                   </div>
@@ -171,15 +171,15 @@ export default function Page() {
           </div>
 
           {/* Second Row */}
-          <div className="w-full flex justify-center mb-6 border">
-            <div className="w-full px-4 flex items-center justify-center border">
-              <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center w-full">
+          <div className="w-full flex justify-center mb-6">
+            <div className="w-full px-4 flex items-center justify-center">
+              <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center w-full">
                 {processSteps2.map((step, i) => (
-                  <div key={i} className="border border-gray-400 rounded-xl shadow-md hover:shadow-lg transition xl:w-[281px]">
-                    <div className="bg-[#F8F1FF] flex items-center justify-center px-6 py-4 rounded-xl h-1/3">
+                  <div key={i} className="border border-gray-400 rounded-xl shadow-md hover:shadow-lg transition w-full max-w-[400px] mx-auto">
+                    <div className="bg-[#F8F1FF] flex items-center justify-center px-6 py-4 rounded-xl h-1/3 min-h-[80px]">
                       <h3 className="poppins-500 text-lg font-semibold text-[#464646] text-center">{step.title}</h3>
                     </div>
-                    <div className="flex text-center items-center justify-center">
+                    <div className="flex text-center items-center justify-center min-h-[120px]">
                       <p className="poppins-400 text-[#000000] text-[12px] font-semibold p-5 font-poppins">{step.desc}</p>
                     </div>
                   </div>
@@ -189,7 +189,6 @@ export default function Page() {
           </div>
         </div>
       </section>
-
       <Footer />
     </div>
   );

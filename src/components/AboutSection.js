@@ -19,7 +19,7 @@ const logos = [
   'logo11',
 ];
 
-export default function About() {
+export default function AboutSection() {
   return (
     <section id="about" className="py-12 px-4 md:px-20">
       <div className="grid md:grid-cols-2 gap-10 items-center">

@@ -91,7 +91,7 @@ export default function page() {
 
                      <div className='gap-2'>
                     <img
-                        src='/visuals.png'
+                        src='/-_Graphics.png'
                         alt='app development'
                         className='w-[300px] h-[250px] md:w-[500px] md:h-[400px] lg:w-[750px] lg:h-[280px]'
                     />

@@ -6,35 +6,35 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 export default function page() {
-  const servicesRight = [
-    {
-      title: "Point of Sales (POS) Software",
-      desc: "Our POS systems streamline your sales process, manage inventory, and improve customer experiences."
-    },
-    {
-      title: "Custom Software Development:",
-      desc: "We design and build software specifically tailored to your unique business requirements."
-    },
-    {
-      title: "Software Maintenance and Support:",
-      desc: "Our team provides ongoing support and updates to keep your software running smoothly and securely."
-    }
-  ];
+  // const servicesRight = [
+  //   {
+  //     title: "Point of Sales (POS) Software",
+  //     desc: "Our POS systems streamline your sales process, manage inventory, and improve customer experiences."
+  //   },
+  //   {
+  //     title: "Custom Software Development:",
+  //     desc: "We design and build software specifically tailored to your unique business requirements."
+  //   },
+  //   {
+  //     title: "Software Maintenance and Support:",
+  //     desc: "Our team provides ongoing support and updates to keep your software running smoothly and securely."
+  //   }
+  // ];
 
-  const servicesLeft = [
-    {
-      title: "Enterprise Resource Planning (ERP):",
-      desc: "Our ERP systems help you manage your business operations seamlessly, from inventory to finances, in one place."
-    },
-    {
-      title: "Customer Relationship Management (CRM):",
-      desc: "We develop CRM tools to help you track leads, manage customer interactions, and boost sales effectively."
-    },
-    {
-      title: "Software Integration Services:",
-      desc: "We ensure your existing software works together smoothly, saving you time and reducing errors."
-    },
-  ];
+  // const servicesLeft = [
+  //   {
+  //     title: "Enterprise Resource Planning (ERP):",
+  //     desc: "Our ERP systems help you manage your business operations seamlessly, from inventory to finances, in one place."
+  //   },
+  //   {
+  //     title: "Customer Relationship Management (CRM):",
+  //     desc: "We develop CRM tools to help you track leads, manage customer interactions, and boost sales effectively."
+  //   },
+  //   {
+  //     title: "Software Integration Services:",
+  //     desc: "We ensure your existing software works together smoothly, saving you time and reducing errors."
+  //   },
+  // ];
 
   const processSteps = [
     { title: "Requirement Analysis & Strategy" },
@@ -76,7 +76,7 @@ export default function page() {
 
         <div className="gap-2">
           <Image
-            src="/ecom.png"
+            src="/-_Ecommerce.png"
             alt="Ecommerce solution"
             width={320}
             height={320}
@@ -148,7 +148,6 @@ export default function page() {
           </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );

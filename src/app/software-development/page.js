@@ -62,7 +62,7 @@ export default function page() {
 
                     <div className='gap-2 relative w-80 h-80'>
                         <Image 
-                            src="/software.png" 
+                            src="/-_Software Solutions.png" 
                             alt="software solution" 
                             fill 
                             style={{ objectFit: 'contain' }} 
